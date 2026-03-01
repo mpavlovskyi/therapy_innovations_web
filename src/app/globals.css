@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-warm-50: #F9F6F0;
+  --color-warm-100: #F3EDE3;
+  --color-warm-200: #E8DFD0;
+
+  --color-forest-900: #1A2E1A;
+  --color-forest-800: #243524;
+  --color-forest-700: #2F4F2F;
+
+  --color-accent-500: #E8813A;
+  --color-accent-600: #D06E2B;
+  --color-accent-400: #F09A56;
+
+  --color-wood-500: #8B6F47;
+  --color-wood-400: #A68B5B;
+  --color-wood-300: #C4A882;
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-syne);
+}
+
+/* ─── Smooth scroll ───────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Base body ───────────────────────── */
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color: #3D3D3D;
+  background: #F9F6F0;
+}
+
+/* ─── Selection ───────────────────────── */
+::selection {
+  background: rgba(232, 129, 58, 0.2);
+  color: #1A1A1A;
+}
+
+/* ─── Section divider ────────────────── */
+.section-divider {
+  height: 1px;
+  background: #E8DFD0;
+}
+
+/* ─── Scroll-triggered fade-in ───────── */
+.fade-section {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Animated counter ───────────────── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Dot grid background ────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── Animated dashed lines for ecosystem */
+@keyframes dashFlow {
+  to { stroke-dashoffset: -20; }
+}
+
+.dash-animate {
+  animation: dashFlow 1.5s linear infinite;
+}
