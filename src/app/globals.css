@@ -1,24 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-warm-50: #F9F6F0;
-  --color-warm-100: #F3EDE3;
-  --color-warm-200: #E8DFD0;
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #F5F5F5;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111111;
+  --color-neutral-950: #0C0C0C;
 
-  --color-forest-900: #1A2E1A;
-  --color-forest-800: #243524;
-  --color-forest-700: #2F4F2F;
+  --color-accent-500: #E8722A;
+  --color-accent-600: #D06020;
+  --color-accent-400: #F09050;
 
-  --color-accent-500: #E8813A;
-  --color-accent-600: #D06E2B;
-  --color-accent-400: #F09A56;
-
-  --color-wood-500: #8B6F47;
-  --color-wood-400: #A68B5B;
-  --color-wood-300: #C4A882;
-
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-syne);
+  --font-sans: var(--font-jakarta);
+  --font-heading: var(--font-space);
 }
 
 /* ─── Smooth scroll ───────────────────── */
@@ -29,27 +24,24 @@ html {
 /* ─── Base body ───────────────────────── */
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
-  color: #3D3D3D;
-  background: #F9F6F0;
+  color: #191919;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ─── Selection ───────────────────────── */
 ::selection {
-  background: rgba(232, 129, 58, 0.2);
-  color: #1A1A1A;
-}
-
-/* ─── Section divider ────────────────── */
-.section-divider {
-  height: 1px;
-  background: #E8DFD0;
+  background: rgba(232, 114, 42, 0.15);
+  color: #191919;
 }
 
 /* ─── Scroll-triggered fade-in ───────── */
 .fade-section {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-section.visible {
@@ -63,17 +55,25 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Dot grid background ────────────── */
-.dot-grid {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 28px 28px;
+/* ─── Subtle card hover ──────────────── */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ─── Animated dashed lines for ecosystem */
-@keyframes dashFlow {
-  to { stroke-dashoffset: -20; }
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
 }
 
-.dash-animate {
-  animation: dashFlow 1.5s linear infinite;
+/* ─── Reduced motion ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .fade-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card-hover:hover {
+    transform: none;
+  }
 }

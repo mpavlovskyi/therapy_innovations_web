@@ -23,19 +23,19 @@ export default function PortfolioPage() {
               { label: "Portfolio" },
             ]}
           />
-          <h1 className="mt-8 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-semibold text-[#1A1A1A]">
-            Our Portfolio
+          <h1 className="mt-8 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-[#191919]">
+            Our portfolio
           </h1>
-          <p className="mt-4 text-lg text-[#6B6B6B] max-w-2xl">
+          <p className="mt-4 text-lg text-[#6B7280] max-w-2xl">
             Seven companies united by a shared mission: advancing ABA therapy
             through technology, media, and community.
           </p>
         </div>
       </section>
 
-      <section className="bg-[#F9F6F0] py-16 lg:py-24 border-t border-[#E8DFD0]">
+      <section className="bg-[#FAFAFA] py-16 lg:py-24 border-t border-[#E5E7EB]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {companies.map((company) => (
               <div
                 key={company.slug}

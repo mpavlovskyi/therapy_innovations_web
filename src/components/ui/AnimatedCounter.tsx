@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 
 export function AnimatedCounter({
   target,
@@ -10,7 +9,6 @@ export function AnimatedCounter({
   duration = 2000,
   label,
   subtitle,
-  icon,
 }: {
   target: number;
   suffix?: string;
@@ -49,7 +47,6 @@ export function AnimatedCounter({
     const step = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(step);
@@ -58,21 +55,16 @@ export function AnimatedCounter({
   }, [started, target, duration]);
 
   return (
-    <div ref={ref} className="text-center">
-      {icon && (
-        <div className="flex justify-center mb-3">
-          <Image src={icon} width={28} height={28} alt="" />
-        </div>
-      )}
-      <div className="font-[family-name:var(--font-heading)] text-5xl md:text-6xl font-bold text-white">
+    <div ref={ref}>
+      <div className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-[#191919]">
         {prefix}
         {started ? count.toLocaleString() : "0"}
         {suffix}
       </div>
-      <div className="mt-2 text-sm font-semibold uppercase tracking-wider text-[#E8813A]">
+      <div className="mt-2 text-sm font-semibold uppercase tracking-wider text-[#E8722A]">
         {label}
       </div>
-      <p className="mt-1 text-sm text-white/60 max-w-[220px] mx-auto">
+      <p className="mt-1 text-sm text-[#9CA3AF]">
         {subtitle}
       </p>
     </div>

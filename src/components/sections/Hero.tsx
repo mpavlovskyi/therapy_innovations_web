@@ -3,108 +3,88 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0C0C0C]">
       {/* Video background */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
       >
         <source src="/videos/hero-chicago.mp4" type="video/mp4" />
       </video>
 
-      {/* Warm therapy-room overlay: ambers + deep greens */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1A2E1A]/85 via-[#2a1f0e]/70 to-[#1A2E1A]/60" />
-
-      {/* Dot-grid texture layer */}
-      <div className="absolute inset-0 dot-grid" />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0C0C0C]/60 via-transparent to-[#0C0C0C]/80" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 py-28 lg:py-40 lg:px-8">
-        <div className="max-w-3xl">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 py-32 lg:py-40 lg:px-8">
+        <div className="max-w-4xl">
           <ScrollReveal>
-            {/* Overline */}
-            <p
-              className="text-sm font-semibold tracking-widest uppercase text-[#E8813A] mb-6"
-              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}
-            >
-              Chicago-based holding company
-            </p>
+            {/* Pill badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-8">
+              <span className="w-2 h-2 rounded-full bg-[#E8722A]" />
+              <span className="text-sm font-medium text-white/80">
+                Chicago-based holding company
+              </span>
+            </div>
 
-            {/* H1 */}
-            <h1
-              className="font-[family-name:var(--font-heading)] font-bold text-white leading-[1.06] drop-shadow-lg"
-              style={{ fontSize: "clamp(2.8rem, 6vw, 5rem)" }}
+            {/* H1 — large display type like OpenNote */}
+            <h1 className="font-[family-name:var(--font-heading)] font-bold text-white leading-[1.05] tracking-tight"
+              style={{ fontSize: "clamp(2.8rem, 6vw, 4.5rem)" }}
             >
-              Built Inside ABA.
+              Built inside ABA.
               <br />
-              Built to Fix It.
+              <span className="text-[#E8722A]">Built to fix it.</span>
             </h1>
 
             {/* Subtitle */}
-            <p
-              className="mt-7 text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed"
-              style={{ textShadow: "0 1px 4px rgba(0,0,0,0.35)" }}
-            >
-              Seven companies solving the real problems ABA professionals live with
-              every day. 80,000+ users. One mission.
+            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
+              Seven companies solving the real problems ABA professionals live
+              with every day. 80,000+ users. One mission.
             </p>
           </ScrollReveal>
 
-          {/* CTA buttons */}
-          <ScrollReveal delay={200}>
+          {/* CTAs */}
+          <ScrollReveal delay={150}>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/portfolio"
-                className="inline-flex items-center px-8 py-3.5 rounded-lg bg-[#E8813A] text-white font-semibold text-[15px] hover:bg-[#D06E2B] hover:shadow-xl hover:scale-[1.02] transition-all duration-200 shadow-lg"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#E8722A] text-white font-semibold text-[15px] hover:bg-[#D06020] transition-all duration-200 shadow-lg shadow-[#E8722A]/20"
               >
-                Explore Our Portfolio
-                <svg
-                  className="ml-2 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
+                Explore portfolio
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center px-8 py-3.5 rounded-lg border border-white/35 text-white font-semibold text-[15px] hover:bg-white/10 transition-all duration-200 backdrop-blur-sm"
+                className="inline-flex items-center px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-[15px] hover:bg-white/5 transition-all duration-200"
               >
-                Our Story
+                Our story
               </Link>
             </div>
           </ScrollReveal>
 
-          {/* Prominent founder quote */}
-          <ScrollReveal delay={400}>
-            <blockquote className="mt-20 pl-6 border-l-4 border-[#E8813A]">
-              <p
-                className="text-white/90 text-xl md:text-2xl italic leading-relaxed font-[family-name:var(--font-heading)]"
-                style={{ textShadow: "0 1px 4px rgba(0,0,0,0.3)" }}
-              >
-                &ldquo;Every company in our portfolio exists because a real need
-                went unmet in the ABA community.&rdquo;
-              </p>
-              <cite className="mt-4 block text-base not-italic">
-                <span className="font-semibold text-white">Quinn Niego</span>
-                <span className="text-white/60"> — Founder &amp; Chairman</span>
-              </cite>
-            </blockquote>
+          {/* Founder quote */}
+          <ScrollReveal delay={300}>
+            <div className="mt-20 flex items-start gap-4 max-w-xl">
+              <div className="w-1 shrink-0 rounded-full bg-[#E8722A] self-stretch" />
+              <div>
+                <p className="text-white/50 text-base md:text-lg leading-relaxed italic">
+                  &ldquo;Every company in our portfolio exists because a real need
+                  went unmet in the ABA community.&rdquo;
+                </p>
+                <p className="mt-3 text-sm">
+                  <span className="font-semibold text-white/70">Quinn Niego</span>
+                  <span className="text-white/40"> — Founder & Chairman</span>
+                </p>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </div>
-
-      {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1A2E1A] to-transparent" />
     </section>
   );
 }

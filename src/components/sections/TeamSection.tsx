@@ -4,24 +4,25 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function TeamSection() {
   return (
-    <section className="bg-[#F9F6F0] py-24 lg:py-32">
-      <div className="mx-auto max-w-[1100px] px-6 lg:px-8">
-        {/* Section header */}
+    <section className="bg-white py-24 lg:py-32">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-16">
-            <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-semibold text-[#1A1A1A]">
-              The Operators Behind the Portfolio
+            <p className="text-sm font-semibold tracking-widest uppercase text-[#E8722A] mb-4">
+              The team
+            </p>
+            <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#191919]">
+              The operators behind the portfolio
             </h2>
-            <p className="mt-4 text-lg text-[#6B6B6B] max-w-2xl">
+            <p className="mt-4 text-lg text-[#6B7280] max-w-2xl">
               15+ years inside ABA clinics. We didn&apos;t study this industry
-              from the outside &mdash; we ran it.
+              from the outside — we ran it.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Two-column card grid */}
         <ScrollReveal delay={150}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}

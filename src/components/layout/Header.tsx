@@ -16,7 +16,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#E8DFD0]/60">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-black/[0.04]">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
         aria-label="Main navigation"
@@ -27,37 +27,41 @@ export function Header() {
             alt="Therapy Innovations"
             width={320}
             height={64}
-            className="h-12 md:h-16 w-auto"
+            className="h-10 md:h-12 w-auto"
             priority
           />
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
             return (
-              <li key={link.href} className="flex flex-col items-center">
-                <Link
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    isActive ? "text-[#1A1A1A]" : "text-[#5A5A5A] hover:text-[#1A1A1A]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-                {isActive && (
-                  <span className="mt-0.5 block w-6 h-[3px] rounded-full bg-[#E8722A]" />
-                )}
-              </li>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
+                  isActive
+                    ? "text-[#191919] bg-black/[0.04]"
+                    : "text-[#6B7280] hover:text-[#191919] hover:bg-black/[0.02]"
+                }`}
+              >
+                {link.label}
+              </Link>
             );
           })}
-        </ul>
+          <Link
+            href="/contact"
+            className="ml-4 px-5 py-2 rounded-full bg-[#191919] text-white text-sm font-medium hover:bg-[#333] transition-colors duration-150"
+          >
+            Get in touch
+          </Link>
+        </div>
 
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="md:hidden p-2 text-[#5A5A5A] hover:text-[#1A1A1A] transition-colors"
+          className="md:hidden p-2 -mr-2 text-[#6B7280] hover:text-[#191919] transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-label="Toggle navigation menu"
@@ -70,17 +74,9 @@ export function Header() {
             stroke="currentColor"
           >
             {mobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             )}
           </svg>
         </button>
@@ -88,20 +84,26 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#E8DFD0]/60 bg-white/95 backdrop-blur-md">
-          <ul className="px-6 py-4 space-y-4">
+        <div className="md:hidden border-t border-black/[0.04] bg-white/95 backdrop-blur-xl">
+          <div className="px-6 py-4 space-y-1">
             {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block text-sm font-medium text-[#5A5A5A] hover:text-[#1A1A1A] transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block px-4 py-3 rounded-lg text-sm font-medium text-[#6B7280] hover:text-[#191919] hover:bg-black/[0.02] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
             ))}
-          </ul>
+            <Link
+              href="/contact"
+              className="block mt-3 px-4 py-3 rounded-full bg-[#191919] text-white text-sm font-medium text-center hover:bg-[#333] transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Get in touch
+            </Link>
+          </div>
         </div>
       )}
     </header>
