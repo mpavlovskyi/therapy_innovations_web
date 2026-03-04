@@ -34,12 +34,12 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
               {item.href ? (
                 <Link
                   href={item.href}
-                  className="transition-colors hover:text-[#E8722A]"
+                  className="transition-colors hover:text-[#0F0F0F]"
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span className="font-medium text-[#191919]">
+                <span className="font-medium text-[#0F0F0F]">
                   {item.label}
                 </span>
               )}

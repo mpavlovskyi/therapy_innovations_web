@@ -6,11 +6,8 @@ export interface Company {
   description: string;
   shortDescription: string;
   features: string[];
-  category: "saas" | "media" | "marketplace" | "nonprofit" | "fieldwork";
-  featured?: boolean;
+  category: "saas" | "media" | "marketplace" | "fieldwork" | "nonprofit";
   displayCategory: string;
-  color: string;
-  accentColor: string;
   iconInitials: string;
   logo?: string;
   screenshot?: string;

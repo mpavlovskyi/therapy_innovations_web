@@ -6,10 +6,10 @@ interface StatBlockProps {
 export function StatBlock({ value, label }: StatBlockProps) {
   return (
     <div className="text-center">
-      <div className="text-5xl md:text-7xl font-bold font-[family-name:var(--font-heading)] text-white">
+      <div className="text-5xl md:text-7xl font-black text-[#0F0F0F] tracking-tight">
         {value}
       </div>
-      <div className="mt-3 text-sm text-white/60 uppercase tracking-widest">
+      <div className="mt-3 text-sm text-[#6B6B6B] uppercase tracking-widest font-medium">
         {label}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Therapy Innovations — ABA Therapy Technology Portfolio";
+export const alt = "Therapy Innovations — ABA Therapy Venture Studio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -10,7 +10,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: "#F9F6F0",
+          background: "#FAFAF8",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -22,22 +22,22 @@ export default async function Image() {
       >
         <div
           style={{
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: 600,
-            color: "#E8813A",
+            color: "#6B6B6B",
             textTransform: "uppercase",
-            letterSpacing: "0.1em",
+            letterSpacing: "0.12em",
             marginBottom: 16,
           }}
         >
-          Chicago-based holding company
+          Chicago-based venture studio
         </div>
         <div
           style={{
             fontSize: 64,
-            fontWeight: 700,
-            color: "#1A1A1A",
-            lineHeight: 1.1,
+            fontWeight: 900,
+            color: "#0F0F0F",
+            lineHeight: 1.05,
             marginBottom: 20,
           }}
         >
@@ -46,11 +46,11 @@ export default async function Image() {
         <div
           style={{
             fontSize: 28,
-            color: "#1A2E1A",
+            color: "#0F0F0F",
             marginBottom: 24,
           }}
         >
-          Innovating the Future of ABA Therapy
+          Building the infrastructure of ABA therapy.
         </div>
         <div
           style={{
@@ -60,8 +60,7 @@ export default async function Image() {
             lineHeight: 1.5,
           }}
         >
-          Building technology for ABA therapy professionals across 7 platforms,
-          serving 80,000+ users.
+          7 companies serving 100,000+ ABA therapy professionals.
         </div>
       </div>
     ),

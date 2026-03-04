@@ -9,7 +9,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
   const showPhoto = member.photo && !imgError;
 
   return (
-    <div className="group rounded-2xl bg-[#FAFAFA] border border-[#E5E7EB] overflow-hidden card-hover">
+    <div className="group border border-[#E5E5E5] bg-white overflow-hidden">
       {/* Photo */}
       <div className="relative w-full overflow-hidden" style={{ height: 360 }}>
         {showPhoto ? (
@@ -22,8 +22,8 @@ export function TeamCard({ member }: { member: TeamMember }) {
             onError={() => setImgError(true)}
           />
         ) : (
-          <div className="absolute inset-0 bg-[#E5E7EB] flex items-center justify-center">
-            <span className="text-5xl font-bold font-[family-name:var(--font-heading)] text-[#9CA3AF]">
+          <div className="absolute inset-0 bg-[#F4F4F2] flex items-center justify-center">
+            <span className="text-5xl font-black text-[#6B6B6B]">
               {member.initials}
             </span>
           </div>
@@ -32,23 +32,21 @@ export function TeamCard({ member }: { member: TeamMember }) {
 
       {/* Content */}
       <div className="p-7">
-        <h3 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-[#191919]">
-          {member.name}
-        </h3>
-        <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-[#E8722A]">
+        <h3 className="text-2xl font-bold text-[#0F0F0F]">{member.name}</h3>
+        <p className="mt-1 text-sm font-medium uppercase tracking-wider text-[#6B6B6B]">
           {member.role}
         </p>
 
         {member.pullQuote && (
           <div className="mt-5 flex gap-3">
-            <div className="w-0.5 shrink-0 rounded-full bg-[#E8722A]" />
-            <p className="text-[15px] italic text-[#6B7280] leading-relaxed">
+            <div className="w-0.5 shrink-0 bg-[#E5E5E5]" />
+            <p className="text-[15px] italic text-[#6B6B6B] leading-relaxed">
               &ldquo;{member.pullQuote}&rdquo;
             </p>
           </div>
         )}
 
-        <p className="mt-5 text-sm text-[#6B7280] leading-relaxed">
+        <p className="mt-5 text-sm text-[#6B6B6B] leading-relaxed">
           {member.bio}
         </p>
 
@@ -57,7 +55,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
             {member.credentials.map((cred) => (
               <span
                 key={cred}
-                className="inline-flex items-center rounded-full bg-[#E5E7EB] text-[#6B7280] text-xs px-2.5 py-1 font-medium"
+                className="inline-flex items-center bg-[#F4F4F2] text-[#6B6B6B] text-xs px-2.5 py-1 font-medium"
               >
                 {cred}
               </span>

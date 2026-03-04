@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Our Portfolio",
   description:
-    "Explore Therapy Innovations' portfolio of 7 companies building technology for ABA therapy professionals — from report automation to AI-powered verification.",
+    "Explore Therapy Innovations' portfolio of 7 companies building the infrastructure of ABA therapy.",
   alternates: {
     canonical: "https://therapyinnovations.org/portfolio",
   },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <section className="bg-white pt-12 pb-20">
+      <section className="bg-[#FAFAF8] pt-12 pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -23,26 +23,21 @@ export default function PortfolioPage() {
               { label: "Portfolio" },
             ]}
           />
-          <h1 className="mt-8 font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-[#191919]">
+          <h1 className="mt-8 text-4xl md:text-5xl font-black text-[#0F0F0F] tracking-tight">
             Our portfolio
           </h1>
-          <p className="mt-4 text-lg text-[#6B7280] max-w-2xl">
-            Seven companies united by a shared mission: advancing ABA therapy
-            through technology, media, and community.
+          <p className="mt-4 text-lg text-[#6B6B6B] max-w-2xl">
+            Seven companies united by a shared mission: building the
+            infrastructure of ABA therapy.
           </p>
         </div>
       </section>
 
-      <section className="bg-[#FAFAFA] py-16 lg:py-24 border-t border-[#E5E7EB]">
+      <section className="bg-[#FAFAF8] py-16 lg:py-24 border-t border-[#E5E5E5]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {companies.map((company) => (
-              <div
-                key={company.slug}
-                className={company.featured ? "md:col-span-2 lg:col-span-3" : ""}
-              >
-                <CompanyCard company={company} />
-              </div>
+              <CompanyCard key={company.slug} company={company} />
             ))}
           </div>
         </div>

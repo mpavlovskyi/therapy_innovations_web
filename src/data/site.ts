@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   legalName: "Therapy Innovations LLC",
   url: "https://therapyinnovations.org",
   description:
-    "Chicago-based holding company building innovative technology for ABA therapy professionals. Our portfolio of companies serves over 80,000 users across 7 platforms.",
+    "Chicago-based venture studio building the infrastructure of ABA therapy. Seven companies serving 100,000+ professionals.",
   location: {
     city: "Chicago",
     state: "IL",

@@ -8,13 +8,13 @@ export function TeamSection() {
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-16">
-            <p className="text-sm font-semibold tracking-widest uppercase text-[#E8722A] mb-4">
+            <p className="text-[13px] font-medium tracking-[0.12em] uppercase text-[#6B6B6B] mb-4">
               The team
             </p>
-            <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#191919]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#0F0F0F] tracking-tight">
               The operators behind the portfolio
             </h2>
-            <p className="mt-4 text-lg text-[#6B7280] max-w-2xl">
+            <p className="mt-4 text-lg text-[#6B6B6B] max-w-2xl">
               15+ years inside ABA clinics. We didn&apos;t study this industry
               from the outside — we ran it.
             </p>

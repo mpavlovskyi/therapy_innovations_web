@@ -1,71 +1,62 @@
-"use client";
-
-import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { companies } from "@/data/companies";
-import { CompanyCard } from "@/components/ui/CompanyCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-const categories = [
-  { key: "all", label: "All" },
-  { key: "fieldwork", label: "Fieldwork Tracking" },
-  { key: "saas", label: "Clinical Tools" },
-  { key: "media", label: "Industry News" },
-  { key: "marketplace", label: "Resources & Hiring" },
-  { key: "nonprofit", label: "Community" },
-] as const;
-
 export function PortfolioGrid() {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filtered =
-    activeCategory === "all"
-      ? companies
-      : companies.filter((c) => c.category === activeCategory);
-
   return (
-    <section className="bg-[#FAFAFA] py-24 lg:py-32">
+    <section className="bg-[#FAFAF8] py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center mb-14">
-            <p className="text-sm font-semibold tracking-widest uppercase text-[#E8722A] mb-4">
-              Our portfolio
-            </p>
-            <h2 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#191919]">
-              Seven companies. One mission.
+          <div className="mb-14">
+            <h2 className="text-4xl md:text-5xl font-black text-[#0F0F0F] tracking-tight">
+              Portfolio
             </h2>
-            <p className="mt-4 text-lg text-[#6B7280] max-w-2xl mx-auto">
-              Advancing ABA therapy through technology, media, and community.
-            </p>
           </div>
         </ScrollReveal>
 
-        {/* Filter chips */}
-        <ScrollReveal delay={100}>
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat.key}
-                onClick={() => setActiveCategory(cat.key)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                  activeCategory === cat.key
-                    ? "bg-[#191919] text-white shadow-md"
-                    : "bg-white border border-[#E5E7EB] text-[#6B7280] hover:border-[#D1D5DB] hover:text-[#191919]"
-                }`}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {companies.map((company) => (
+            <ScrollReveal key={company.slug}>
+              <Link
+                href={`/portfolio/${company.slug}`}
+                className="group block h-full"
               >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
+                <article className="border border-[#E5E5E5] bg-white p-8 h-full flex flex-col card-hover">
+                  <div className="flex items-center gap-3 mb-4">
+                    {company.logo ? (
+                      <Image
+                        src={company.logo}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="h-8 w-8 object-contain"
+                      />
+                    ) : (
+                      <div className="h-8 w-8 bg-[#F4F4F2] flex items-center justify-center text-xs font-bold text-[#6B6B6B]">
+                        {company.iconInitials}
+                      </div>
+                    )}
+                    <h3 className="text-lg font-bold text-[#0F0F0F]">
+                      {company.name}
+                    </h3>
+                  </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((company) => (
-            <div
-              key={company.slug}
-              className={company.featured ? "md:col-span-2 lg:col-span-3" : ""}
-            >
-              <CompanyCard company={company} />
-            </div>
+                  <p className="text-sm text-[#6B6B6B] leading-relaxed flex-1">
+                    {company.shortDescription}
+                  </p>
+
+                  <div className="mt-6 pt-4 border-t border-[#E5E5E5] flex items-center justify-between">
+                    <span className="text-xs font-medium text-[#6B6B6B]">
+                      {company.statBadge}
+                    </span>
+                    <span className="text-sm font-medium text-[#0F0F0F] group-hover:underline">
+                      Visit &rarr;
+                    </span>
+                  </div>
+                </article>
+              </Link>
+            </ScrollReveal>
           ))}
         </div>
       </div>

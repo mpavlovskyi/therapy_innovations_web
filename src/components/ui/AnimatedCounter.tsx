@@ -16,7 +16,6 @@ export function AnimatedCounter({
   duration?: number;
   label: string;
   subtitle: string;
-  icon?: string;
 }) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
@@ -56,17 +55,15 @@ export function AnimatedCounter({
 
   return (
     <div ref={ref}>
-      <div className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-bold text-[#191919]">
+      <div className="text-4xl md:text-5xl font-black text-[#0F0F0F] tracking-tight">
         {prefix}
         {started ? count.toLocaleString() : "0"}
         {suffix}
       </div>
-      <div className="mt-2 text-sm font-semibold uppercase tracking-wider text-[#E8722A]">
+      <div className="mt-2 text-sm font-medium uppercase tracking-wider text-[#6B6B6B]">
         {label}
       </div>
-      <p className="mt-1 text-sm text-[#9CA3AF]">
-        {subtitle}
-      </p>
+      <p className="mt-1 text-sm text-[#6B6B6B]">{subtitle}</p>
     </div>
   );
 }

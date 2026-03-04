@@ -3,22 +3,30 @@ interface SectionHeadingProps {
   subtitle?: string;
   overline?: string;
   align?: "left" | "center";
-  light?: boolean;
 }
 
-export function SectionHeading({ title, subtitle, overline, align = "left", light = false }: SectionHeadingProps) {
+export function SectionHeading({
+  title,
+  subtitle,
+  overline,
+  align = "left",
+}: SectionHeadingProps) {
   return (
     <div className={`mb-12 ${align === "center" ? "text-center" : ""}`}>
       {overline && (
-        <p className={`text-sm font-semibold tracking-widest uppercase mb-4 ${light ? "text-[#E8722A]" : "text-[#E8722A]"}`}>
+        <p className="text-sm font-medium tracking-widest uppercase mb-4 text-[#6B6B6B]">
           {overline}
         </p>
       )}
-      <h2 className={`font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-bold ${light ? "text-white" : "text-[#191919]"}`}>
+      <h2 className="text-3xl md:text-4xl font-black text-[#0F0F0F] tracking-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-4 text-lg ${align === "center" ? "max-w-2xl mx-auto" : "max-w-2xl"} ${light ? "text-white/50" : "text-[#6B7280]"}`}>
+        <p
+          className={`mt-4 text-lg text-[#6B6B6B] ${
+            align === "center" ? "max-w-2xl mx-auto" : "max-w-2xl"
+          }`}
+        >
           {subtitle}
         </p>
       )}

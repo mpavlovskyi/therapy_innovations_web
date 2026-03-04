@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import {
@@ -8,27 +8,21 @@ import {
 } from "@/lib/structured-data";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-});
-
-const space = Space_Grotesk({
-  variable: "--font-space",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "900"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://therapyinnovations.org"),
   title: {
-    default: "Therapy Innovations | ABA Therapy Technology Portfolio",
+    default: "Therapy Innovations | ABA Therapy Venture Studio",
     template: "%s | Therapy Innovations",
   },
   description:
-    "Chicago-based holding company building innovative technology for ABA therapy professionals. Our portfolio serves over 80,000 users across 7 platforms.",
+    "Chicago-based venture studio building the infrastructure of ABA therapy. Seven companies serving 100,000+ professionals.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -57,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jakarta.variable} ${space.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
